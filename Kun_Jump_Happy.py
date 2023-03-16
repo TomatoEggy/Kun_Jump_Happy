@@ -453,8 +453,8 @@ def on_mouse_down(pos):
     elif games==3:
         if musicbutton.collidepoint(pos):
             if musicbg=='kunmusic':
-                musicbg='fuckykun'
-            elif musicbg=='fuckykun':
+                musicbg='funkykun'
+            elif musicbg=='funkykun':
                 musicbg='huanzhou_dj'
             elif musicbg=='huanzhou_dj':
                 musicbg='kunmusic'
