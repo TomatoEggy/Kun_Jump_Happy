@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxjtihfp2flq7"]
+
+[ext_resource type="Script" path="res://scripts/UI/MainMenu.gd" id="1_6va4s"]
+[ext_resource type="Texture2D" uid="uid://dhw2s0m7xttln" path="res://assets/images/UI/background.png" id="1_ds12c"]
+[ext_resource type="Theme" uid="uid://dnmuck40dl64f" path="res://resources/default_theme.tres" id="2_buw8f"]
+[ext_resource type="Texture2D" uid="uid://gcru32o82iud" path="res://assets/images/UI/Buttons/button.png" id="3_tmmpw"]
+[ext_resource type="Texture2D" uid="uid://b70bar41ivt81" path="res://assets/images/UI/Buttons/button_pressed.png" id="4_3dtwd"]
+[ext_resource type="Texture2D" uid="uid://c4eo8a0xdeya1" path="res://assets/images/UI/Buttons/button_hover.png" id="5_tadvx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_buw8f")
+script = ExtResource("1_6va4s")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ds12c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "坤 坤 跳 跳 乐"
+horizontal_alignment = 1
+
+[node name="Version" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "版本:"
+horizontal_alignment = 1
+
+[node name="HButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/HButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_mask = 7
+texture_normal = ExtResource("3_tmmpw")
+texture_pressed = ExtResource("4_3dtwd")
+texture_hover = ExtResource("5_tadvx")
+stretch_mode = 3
+
+[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_buw8f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "开始游戏"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer/HButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_mask = 7
+texture_normal = ExtResource("3_tmmpw")
+texture_pressed = ExtResource("4_3dtwd")
+texture_hover = ExtResource("5_tadvx")
+stretch_mode = 3
+
+[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_buw8f")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "游戏设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InputTip" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[connection signal="button_up" from="VBoxContainer/HButtonsContainer/StartButton" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="VBoxContainer/HButtonsContainer/SettingsButton" to="." method="_on_settings_button_up"]

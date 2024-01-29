@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxdr0wpl8qja5"]
+
+[ext_resource type="Texture2D" uid="uid://dhw2s0m7xttln" path="res://assets/images/UI/background.png" id="1_hnf7w"]
+[ext_resource type="Script" path="res://scripts/UI/Settings.gd" id="2_fdcrg"]
+[ext_resource type="Theme" uid="uid://dnmuck40dl64f" path="res://resources/default_theme.tres" id="2_mp3mg"]
+[ext_resource type="Texture2D" uid="uid://gcru32o82iud" path="res://assets/images/UI/Buttons/button.png" id="3_mk8r6"]
+[ext_resource type="Script" path="res://scripts/UI/ToggleButton.gd" id="4_aglua"]
+[ext_resource type="Texture2D" uid="uid://b70bar41ivt81" path="res://assets/images/UI/Buttons/button_pressed.png" id="4_t01t1"]
+[ext_resource type="Texture2D" uid="uid://c4eo8a0xdeya1" path="res://assets/images/UI/Buttons/button_hover.png" id="5_hef6c"]
+[ext_resource type="AudioStream" uid="uid://dby4cvx60xscq" path="res://assets/music/kunmusic.mp3" id="8_clyd8"]
+[ext_resource type="AudioStream" uid="uid://b2wf52yg08txc" path="res://assets/music/funkykun.mp3" id="9_4v1nf"]
+[ext_resource type="AudioStream" uid="uid://dneyvn4tc2x2f" path="res://assets/music/huanzhou_dj.mp3" id="10_q2k7r"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_mp3mg")
+script = ExtResource("2_fdcrg")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hnf7w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = 39.0
+offset_right = 221.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "游戏设置"
+horizontal_alignment = 1
+
+[node name="HButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MusicButton" type="VBoxContainer" parent="VBoxContainer/HButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HButtonsContainer/MusicButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "设置背景音乐"
+horizontal_alignment = 1
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HButtonsContainer/MusicButton"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_mask = 7
+texture_normal = ExtResource("3_mk8r6")
+texture_pressed = ExtResource("4_t01t1")
+texture_hover = ExtResource("5_hef6c")
+stretch_mode = 3
+script = ExtResource("4_aglua")
+options = {
+"funky kun": ExtResource("9_4v1nf"),
+"kun music": ExtResource("8_clyd8"),
+"幻昼DJ版": ExtResource("10_q2k7r")
+}
+default_key = "kun music"
+
+[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/MusicButton/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_mp3mg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "kunmusic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundsButton" type="VBoxContainer" parent="VBoxContainer/HButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HButtonsContainer/SoundsButton"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "音效开关"
+horizontal_alignment = 1
+
+[node name="Button" type="TextureButton" parent="VBoxContainer/HButtonsContainer/SoundsButton"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_mask = 7
+texture_normal = ExtResource("3_mk8r6")
+texture_pressed = ExtResource("4_t01t1")
+texture_hover = ExtResource("5_hef6c")
+stretch_mode = 3
+script = ExtResource("4_aglua")
+options = {
+"关掉": false,
+"打开": true
+}
+default_key = "打开"
+
+[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/SoundsButton/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_mp3mg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "打开"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_mask = 7
+texture_normal = ExtResource("3_mk8r6")
+texture_pressed = ExtResource("4_t01t1")
+texture_hover = ExtResource("5_hef6c")
+stretch_mode = 3
+
+[node name="Text" type="Label" parent="VBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_mp3mg")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "退出设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="changed" from="VBoxContainer/HButtonsContainer/MusicButton/Button" to="." method="_on_music_button_changed"]
+[connection signal="changed" from="VBoxContainer/HButtonsContainer/SoundsButton/Button" to="." method="_on_sounds_button_changed"]
+[connection signal="button_up" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]

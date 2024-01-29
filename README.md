@@ -1,28 +1,47 @@
-# 坤坤跳跳乐
-本游戏使用python的pygame zero库制作，
+# 坤坤跳跳乐 | Kun Jump Happy
 
-游玩前如果没有安装pgzero库请使用以下命令安装
-```
-pip install pgzero
-```
+English | [简体中文](README_ZH.md)
 
-## 操作方法
-使用 空格(SPACE) 跳跃
+A simple game.
 
-使用 S键 或 下方向键 下蹲
+Made with Godot 4.2 stable.
 
-使用 A键 或 左方向键 左移
+## Gameplay
+Control Kun Kun to jump and squat, and avoid all obstacles.
 
-使用 D键 或 右方向键 右移
+There are 3 obstacles: basketry, basketball and sun.
 
-## 游戏内容
-分三个部分：跳篮筐、躲篮球、避太阳
+Four difficulties:
 
-每个部分有不同的操作方法
+|Easy|Midium|Hard| : ( |
+|:--:|:----:|:--:|:---:|
+|HP: 5|HP: 3|HP: 2|HP: 1|
+|slow speed|midium|a little hard|very hard|
 
-食油饼可以恢复血量
+Obstacles are generated infinitely. How many scores can you get?
 
-PS：顶一下最上方的篮球有奇效
+Cake can restore HP.
 
-## 注意事项
-游玩前请切换至英文输入法！！
+Tip: You can try to collide the top basketball.
+
+## Supported Platforms
+Desktop: Windows, macOS, Linux
+
+*Note*：Mac OS is not notarized, and it may be blocked by GateKeeper, but **this game does not contain any malicious code and harmful programs, so please feel free to play.**
+
+Mobile: Android
+
+*(Stay tuned for iOS)*
+
+## Operation
+### Desktop
+Jump: Press **Space**
+
+Squat: Press **S** or **↓**
+
+### Mobile
+Jump: Tap left half of the screen
+
+Squat: Hold down the right half of the screen
+
+# Have a good time!

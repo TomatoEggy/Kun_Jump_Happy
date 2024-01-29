@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dnmuck40dl64f"]
+
+[ext_resource type="FontFile" uid="uid://cfg17mpwnpkoh" path="res://assets/fonts/smiley_sans.ttf" id="1_6wul0"]
+
+[resource]
+default_font = ExtResource("1_6wul0")
+default_font_size = 20

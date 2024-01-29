@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://b80e4rd722yab"]
+
+[ext_resource type="Script" path="res://scripts/Game.gd" id="1_qibq5"]
+[ext_resource type="PackedScene" uid="uid://b85iei2r0i1hf" path="res://scenes/UI/game_over.tscn" id="2_67b7e"]
+[ext_resource type="AudioStream" uid="uid://dby4cvx60xscq" path="res://assets/music/kunmusic.mp3" id="2_ifpww"]
+[ext_resource type="PackedScene" uid="uid://b5k6hs87avwqx" path="res://scenes/World/world.tscn" id="3_rsf6b"]
+[ext_resource type="PackedScene" uid="uid://bxjtihfp2flq7" path="res://scenes/UI/main_menu.tscn" id="4_aauoe"]
+[ext_resource type="PackedScene" uid="uid://cxdr0wpl8qja5" path="res://scenes/UI/settings.tscn" id="5_ujaaj"]
+[ext_resource type="PackedScene" uid="uid://c6kou4vywcj2t" path="res://scenes/UI/difficulty.tscn" id="6_s65sc"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_qibq5")
+game_over_scene = ExtResource("2_67b7e")
+world_scene = ExtResource("3_rsf6b")
+main_menu_scene = ExtResource("4_aauoe")
+settings_menu_scene = ExtResource("5_ujaaj")
+difficulty_scene = ExtResource("6_s65sc")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ifpww")
+bus = &"BGM"
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"

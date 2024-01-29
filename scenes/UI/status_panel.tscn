@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://8bse85p32rto"]
+
+[ext_resource type="FontFile" uid="uid://cfg17mpwnpkoh" path="res://assets/fonts/smiley_sans.ttf" id="1_6utji"]
+[ext_resource type="Script" path="res://scripts/UI/StatusPanel.gd" id="1_87rh3"]
+
+[node name="StatusPanel" type="VBoxContainer"]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 84.0
+offset_bottom = 54.0
+alignment = 1
+script = ExtResource("1_87rh3")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6utji")
+theme_override_font_sizes/font_size = 25
+text = "你的得分："
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6utji")
+theme_override_font_sizes/font_size = 25
+text = "你的血量："

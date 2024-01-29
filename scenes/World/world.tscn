@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5k6hs87avwqx"]
+
+[ext_resource type="Script" path="res://scripts/Creators/CloudCreator.gd" id="1_s2fjq"]
+[ext_resource type="PackedScene" uid="uid://bgxb1ry3wpgew" path="res://scenes/World/cloud.tscn" id="2_rdmgm"]
+[ext_resource type="Texture2D" uid="uid://brpiwveenljd1" path="res://assets/images/road.jpg" id="3_rm18j"]
+[ext_resource type="Script" path="res://scripts/World/Road.gd" id="3_utfgh"]
+[ext_resource type="PackedScene" uid="uid://b56ogi1wbqil6" path="res://scenes/kunkun.tscn" id="4_3sr1d"]
+[ext_resource type="PackedScene" uid="uid://cnth7b7ugxmln" path="res://scenes/Obstacles/basketry.tscn" id="5_3i63o"]
+[ext_resource type="Script" path="res://scripts/Creators/ObstacleCreator.gd" id="6_f30nb"]
+[ext_resource type="PackedScene" uid="uid://lf4tlralgfhn" path="res://scenes/Obstacles/basketball.tscn" id="7_byff2"]
+[ext_resource type="Script" path="res://scripts/Creators/CakeCreator.gd" id="7_cvg7x"]
+[ext_resource type="PackedScene" uid="uid://dojb3307rticc" path="res://scenes/Obstacles/cake.tscn" id="8_7eruk"]
+[ext_resource type="PackedScene" uid="uid://ephuxhp4c7oh" path="res://scenes/Obstacles/sun.tscn" id="8_dq45o"]
+[ext_resource type="PackedScene" uid="uid://8bse85p32rto" path="res://scenes/UI/status_panel.tscn" id="9_f2trp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41nsa"]
+size = Vector2(950, 22)
+
+[node name="World" type="Node2D"]
+
+[node name="BackGround" type="Polygon2D" parent="."]
+color = Color(0.870588, 0.980392, 1, 1)
+polygon = PackedVector2Array(0, 0, 0, 300, 950, 300, 950, 0, 0, 0)
+
+[node name="Road" type="StaticBody2D" parent="."]
+position = Vector2(0, 249)
+collision_mask = 6
+script = ExtResource("3_utfgh")
+
+[node name="Graphics" type="Node2D" parent="Road"]
+
+[node name="Road1" type="Sprite2D" parent="Road/Graphics"]
+texture = ExtResource("3_rm18j")
+centered = false
+
+[node name="Road2" type="Sprite2D" parent="Road/Graphics"]
+position = Vector2(950, 0)
+texture = ExtResource("3_rm18j")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Road"]
+position = Vector2(475, 40)
+shape = SubResource("RectangleShape2D_41nsa")
+
+[node name="CloudCreator" type="Node2D" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("1_s2fjq")
+node_scene = ExtResource("2_rdmgm")
+timer = NodePath("CreateCloudTimer")
+
+[node name="CreateCloudTimer" type="Timer" parent="CloudCreator"]
+
+[node name="ObstacleCreator" type="Node2D" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("6_f30nb")
+obstacle_scenes = Array[PackedScene]([ExtResource("5_3i63o"), ExtResource("7_byff2"), ExtResource("8_dq45o")])
+timer = NodePath("CreateObstacleTimer")
+
+[node name="CreateObstacleTimer" type="Timer" parent="ObstacleCreator"]
+wait_time = 1.5
+
+[node name="CakeCreator" type="Node2D" parent="." node_paths=PackedStringArray("timer")]
+script = ExtResource("7_cvg7x")
+node_scene = ExtResource("8_7eruk")
+timer = NodePath("CreateCakeTimer")
+
+[node name="CreateCakeTimer" type="Timer" parent="CakeCreator"]
+wait_time = 2.5
+
+[node name="KunKun" parent="." instance=ExtResource("4_3sr1d")]
+position = Vector2(85, 225)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StatusPanel" parent="CanvasLayer" node_paths=PackedStringArray("kunkun") instance=ExtResource("9_f2trp")]
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 81.0
+kunkun = NodePath("../../KunKun")
+
+[connection signal="timeout" from="ObstacleCreator/CreateObstacleTimer" to="ObstacleCreator" method="_on_timer_timeout"]

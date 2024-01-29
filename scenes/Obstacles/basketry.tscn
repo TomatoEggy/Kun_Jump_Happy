@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnth7b7ugxmln"]
+
+[ext_resource type="PackedScene" uid="uid://cdmwevi6rnb81" path="res://scenes/Obstacles/obstacle.tscn" id="1_vivhj"]
+[ext_resource type="Texture2D" uid="uid://bacurnnw76v0g" path="res://assets/images/obstacles/basketry.png" id="2_ayhau"]
+[ext_resource type="Script" path="res://scripts/Obstacles/Basketry.gd" id="2_r6dpu"]
+[ext_resource type="Texture2D" uid="uid://douirs1hi708b" path="res://assets/images/obstacles/2basketrys.png" id="3_tbblk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcxpb"]
+size = Vector2(34, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbitd"]
+size = Vector2(14, 58.5)
+
+[node name="Basketry" instance=ExtResource("1_vivhj")]
+script = ExtResource("2_r6dpu")
+two_basketry_texture = ExtResource("3_tbblk")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ayhau")
+offset = Vector2(0, -45)
+
+[node name="CollideArea" parent="." index="1"]
+position = Vector2(0, -45)
+
+[node name="CollisionShape" parent="CollideArea" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_jcxpb")
+
+[node name="CollisionShape" parent="." index="2"]
+position = Vector2(0, -37.75)
+shape = SubResource("RectangleShape2D_jbitd")

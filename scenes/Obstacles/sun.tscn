@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://ephuxhp4c7oh"]
+
+[ext_resource type="PackedScene" uid="uid://cdmwevi6rnb81" path="res://scenes/Obstacles/obstacle.tscn" id="1_us2uj"]
+[ext_resource type="Texture2D" uid="uid://barfyorbjyijo" path="res://assets/images/obstacles/sun.png" id="2_4m554"]
+[ext_resource type="Script" path="res://scripts/Obstacles/Sun.gd" id="2_vfygd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmesj"]
+radius = 19.0263
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h64w1"]
+radius = 9.0
+
+[node name="Sun" instance=ExtResource("1_us2uj")]
+script = ExtResource("2_vfygd")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_4m554")
+
+[node name="CollisionShape" parent="CollideArea" index="0"]
+shape = SubResource("CircleShape2D_fmesj")
+
+[node name="CollisionShape" parent="." index="2"]
+shape = SubResource("CircleShape2D_h64w1")
