@@ -1,6 +1,6 @@
 # 坤坤跳跳乐 | Kun Jump Happy
 
-### 简体中文 | [English](README.md)
+### [English](README.md) | 简体中文
 
 一个操作非常简单的小游戏
 
