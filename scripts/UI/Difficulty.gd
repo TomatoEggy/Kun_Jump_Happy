@@ -22,9 +22,9 @@ func _on_medium_button_up() -> void:
 		"initial_health": 3,
 		"invincible_obstacle_num": 3,
 		"invincible_chance": 0.06,
-		"cake_chance": 0.05,
+		"cake_chance": 0.04,
 		"velocity": 520,
-		"sun_force": Vector2(-550, -385),
+		"sun_force": Vector2(-480, -380),
 	}
 	start_game()
 
@@ -34,11 +34,11 @@ func _on_hard_button_up() -> void:
 		"obstacle_range": 4,
 		"create_obstacle_wait_time": 1,
 		"initial_health": 2,
-		"invincible_obstacle_num": 0.95,
+		"invincible_obstacle_num": 1,
 		"invincible_chance": 0.01,
 		"cake_chance": 0.01,
 		"velocity": 660,
-		"sun_force": Vector2(-650, -400),
+		"sun_force": Vector2(-650, -380),
 	}
 	start_game()
 
@@ -52,7 +52,7 @@ func _on_hell_button_up() -> void:
 		"invincible_chance": 0,
 		"cake_chance": 0,
 		"velocity": 850,
-		"sun_force": Vector2(-880, -400),
+		"sun_force": Vector2(-800, -380),
 	}
 	start_game()
 

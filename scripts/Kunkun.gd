@@ -135,6 +135,7 @@ func next_state(state: State) -> State:
 				return State.IDLE
 				
 		State.INVINCIBLE:
+			should_squat = false
 			if invincible_timer.is_stopped():
 				should_invincible = false
 				invincible_timer.wait_time = invincible_time

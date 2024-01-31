@@ -12,5 +12,4 @@ func _ready() -> void:
 		position.y = TOP_POS_Y
 		not_hurt = true
 	else:
-		var index := randi_range(0,1)
-		position.y = [MIDDLE_POS_Y,BOTTOM_POS_Y][index]
+		position.y = MIDDLE_POS_Y if Game.chance(0.5) else BOTTOM_POS_Y

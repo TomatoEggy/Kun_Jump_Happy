@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Kun_Jump_Happy"
 config/description="坤坤跳跳乐"
-config/version="5.0.0"
+config/version="5.1.0"
 run/main_scene="res://scenes/UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
