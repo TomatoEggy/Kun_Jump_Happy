@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxdr0wpl8qja5"]
+[gd_scene load_steps=12 format=3 uid="uid://cxdr0wpl8qja5"]
 
 [ext_resource type="Texture2D" uid="uid://dhw2s0m7xttln" path="res://assets/images/UI/background.png" id="1_hnf7w"]
 [ext_resource type="Script" path="res://scripts/UI/Settings.gd" id="2_fdcrg"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dby4cvx60xscq" path="res://assets/music/kunmusic.mp3" id="8_clyd8"]
 [ext_resource type="AudioStream" uid="uid://b2wf52yg08txc" path="res://assets/music/funkykun.mp3" id="9_4v1nf"]
 [ext_resource type="AudioStream" uid="uid://dneyvn4tc2x2f" path="res://assets/music/huanzhou_dj.mp3" id="10_q2k7r"]
+[ext_resource type="AudioStream" uid="uid://df7xbwn7lecbh" path="res://assets/music/spring_festival.mp3" id="11_mbgqb"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -78,7 +79,8 @@ script = ExtResource("4_aglua")
 options = {
 "funky kun": ExtResource("9_4v1nf"),
 "kun music": ExtResource("8_clyd8"),
-"幻昼DJ版": ExtResource("10_q2k7r")
+"幻昼DJ版": ExtResource("10_q2k7r"),
+"春节坤曲": ExtResource("11_mbgqb")
 }
 default_key = "kun music"
 
