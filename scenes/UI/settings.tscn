@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxdr0wpl8qja5"]
+[gd_scene load_steps=13 format=3 uid="uid://cxdr0wpl8qja5"]
 
 [ext_resource type="Texture2D" uid="uid://dhw2s0m7xttln" path="res://assets/images/UI/background.png" id="1_hnf7w"]
 [ext_resource type="Script" path="res://scripts/UI/Settings.gd" id="2_fdcrg"]
 [ext_resource type="Theme" uid="uid://dnmuck40dl64f" path="res://resources/default_theme.tres" id="2_mp3mg"]
+[ext_resource type="PackedScene" uid="uid://dl8qfry6x6u7n" path="res://scenes/UI/video.tscn" id="3_0jpn7"]
 [ext_resource type="Texture2D" uid="uid://gcru32o82iud" path="res://assets/images/UI/Buttons/button.png" id="3_mk8r6"]
-[ext_resource type="Script" path="res://scripts/UI/ToggleButton.gd" id="4_aglua"]
 [ext_resource type="Texture2D" uid="uid://b70bar41ivt81" path="res://assets/images/UI/Buttons/button_pressed.png" id="4_t01t1"]
 [ext_resource type="Texture2D" uid="uid://c4eo8a0xdeya1" path="res://assets/images/UI/Buttons/button_hover.png" id="5_hef6c"]
 [ext_resource type="AudioStream" uid="uid://dby4cvx60xscq" path="res://assets/music/kunmusic.mp3" id="8_clyd8"]
+[ext_resource type="Script" path="res://scripts/UI/SettingsButton.gd" id="8_dc8i2"]
 [ext_resource type="AudioStream" uid="uid://b2wf52yg08txc" path="res://assets/music/funkykun.mp3" id="9_4v1nf"]
 [ext_resource type="AudioStream" uid="uid://dneyvn4tc2x2f" path="res://assets/music/huanzhou_dj.mp3" id="10_q2k7r"]
 [ext_resource type="AudioStream" uid="uid://df7xbwn7lecbh" path="res://assets/music/spring_festival.mp3" id="11_mbgqb"]
@@ -21,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mp3mg")
 script = ExtResource("2_fdcrg")
+video_scene = ExtResource("3_0jpn7")
 
 [node name="BackGround" type="TextureRect" parent="."]
 layout_mode = 1
@@ -75,7 +77,7 @@ texture_normal = ExtResource("3_mk8r6")
 texture_pressed = ExtResource("4_t01t1")
 texture_hover = ExtResource("5_hef6c")
 stretch_mode = 3
-script = ExtResource("4_aglua")
+script = ExtResource("8_dc8i2")
 options = {
 "funky kun": ExtResource("9_4v1nf"),
 "kun music": ExtResource("8_clyd8"),
@@ -117,12 +119,13 @@ texture_normal = ExtResource("3_mk8r6")
 texture_pressed = ExtResource("4_t01t1")
 texture_hover = ExtResource("5_hef6c")
 stretch_mode = 3
-script = ExtResource("4_aglua")
+script = ExtResource("8_dc8i2")
 options = {
-"关掉": false,
-"打开": true
+"Both of": true,
+"Turn off": true,
+"Turn on": true
 }
-default_key = "打开"
+default_key = "Turn on"
 
 [node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/SoundsButton/Button"]
 layout_mode = 1
@@ -134,7 +137,7 @@ grow_vertical = 2
 theme = ExtResource("2_mp3mg")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "打开"
+text = "Turn on"
 horizontal_alignment = 1
 vertical_alignment = 1
 

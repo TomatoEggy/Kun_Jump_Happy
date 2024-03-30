@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxjtihfp2flq7"]
+[gd_scene load_steps=14 format=3 uid="uid://bxjtihfp2flq7"]
 
 [ext_resource type="Script" path="res://scripts/UI/MainMenu.gd" id="1_6va4s"]
 [ext_resource type="Texture2D" uid="uid://dhw2s0m7xttln" path="res://assets/images/UI/background.png" id="1_ds12c"]
@@ -6,6 +6,27 @@
 [ext_resource type="Texture2D" uid="uid://gcru32o82iud" path="res://assets/images/UI/Buttons/button.png" id="3_tmmpw"]
 [ext_resource type="Texture2D" uid="uid://b70bar41ivt81" path="res://assets/images/UI/Buttons/button_pressed.png" id="4_3dtwd"]
 [ext_resource type="Texture2D" uid="uid://c4eo8a0xdeya1" path="res://assets/images/UI/Buttons/button_hover.png" id="5_tadvx"]
+[ext_resource type="Script" path="res://scripts/UI/MainButton.gd" id="7_26pvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxjhw"]
+size = Vector2(422, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y1if"]
+size = Vector2(264, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5748y"]
+size = Vector2(229, 35)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kym7h"]
+radius = 31.0
+height = 176.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn4na"]
+radius = 31.0
+height = 176.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf2v4"]
+size = Vector2(951, 17)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -26,43 +47,116 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ds12c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 13
+[node name="Title" type="RigidBody2D" parent="."]
+position = Vector2(482, 85)
+mass = 3.0
+gravity_scale = 0.0
+
+[node name="Title" type="Label" parent="Title"]
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -62.0
+offset_right = 271.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+theme = ExtResource("2_buw8f")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 90
 text = "坤 坤 跳 跳 乐"
 horizontal_alignment = 1
 
-[node name="Version" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Title"]
+position = Vector2(-2, -10)
+shape = SubResource("RectangleShape2D_kxjhw")
+debug_color = Color(0, 0.6, 0.701961, 0.211765)
+
+[node name="InputTip" type="RigidBody2D" parent="."]
+position = Vector2(476, 270)
+mass = 0.5
+gravity_scale = 0.0
+
+[node name="InputTip" type="Label" parent="InputTip"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -14.0
+offset_right = 177.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_buw8f")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "版本:"
+theme_override_font_sizes/font_size = 20
+text = "按下空格键跳跃，按下S键或↓键下蹲"
 horizontal_alignment = 1
 
-[node name="HButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputTip"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_5y1if")
+debug_color = Color(0, 0.6, 0.701961, 0.211765)
 
-[node name="StartButton" type="TextureButton" parent="VBoxContainer/HButtonsContainer"]
-layout_mode = 2
+[node name="Version" type="RigidBody2D" parent="."]
+position = Vector2(474, 154)
+mass = 1.2
+gravity_scale = 0.0
+
+[node name="Version" type="Label" parent="Version"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -21.0
+offset_right = 177.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_buw8f")
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "版本: 1st Anniversary"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Version"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_5748y")
+debug_color = Color(0, 0.6, 0.701961, 0.211765)
+
+[node name="StartButton" type="RigidBody2D" parent="."]
+position = Vector2(370, 216)
+gravity_scale = 0.0
+
+[node name="StartButton" type="TextureButton" parent="StartButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -31.5
+offset_right = 87.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 button_mask = 7
 texture_normal = ExtResource("3_tmmpw")
 texture_pressed = ExtResource("4_3dtwd")
 texture_hover = ExtResource("5_tadvx")
 stretch_mode = 3
+script = ExtResource("7_26pvo")
+metadata/_edit_use_anchors_ = true
 
-[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/StartButton"]
+[node name="Text" type="Label" parent="StartButton/StartButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,16 +170,36 @@ text = "开始游戏"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsButton" type="TextureButton" parent="VBoxContainer/HButtonsContainer"]
-layout_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartButton"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_kym7h")
+debug_color = Color(0, 0.6, 0.701961, 0.211765)
+
+[node name="SettingsButton" type="RigidBody2D" parent="."]
+position = Vector2(585, 216)
+gravity_scale = 0.0
+
+[node name="SettingsButton" type="TextureButton" parent="SettingsButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -31.5
+offset_right = 87.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 button_mask = 7
 texture_normal = ExtResource("3_tmmpw")
 texture_pressed = ExtResource("4_3dtwd")
 texture_hover = ExtResource("5_tadvx")
 stretch_mode = 3
+script = ExtResource("7_26pvo")
 
-[node name="Text" type="Label" parent="VBoxContainer/HButtonsContainer/SettingsButton"]
+[node name="Text" type="Label" parent="SettingsButton/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,11 +213,20 @@ text = "游戏设置"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InputTip" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_font_sizes/font_size = 20
-horizontal_alignment = 1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsButton"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hn4na")
+debug_color = Color(0, 0.6, 0.701961, 0.211765)
 
-[connection signal="button_up" from="VBoxContainer/HButtonsContainer/StartButton" to="." method="_on_start_button_up"]
-[connection signal="button_up" from="VBoxContainer/HButtonsContainer/SettingsButton" to="." method="_on_settings_button_up"]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(475, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_nf2v4")
+debug_color = Color(0.639216, 0.517647, 0.243137, 0.419608)
+
+[connection signal="button_up" from="StartButton/StartButton" to="." method="_on_start_button_up"]
+[connection signal="count_changed" from="StartButton/StartButton" to="StartButton/StartButton" method="_on_count_changed"]
+[connection signal="button_up" from="SettingsButton/SettingsButton" to="." method="_on_settings_button_up"]
+[connection signal="count_changed" from="SettingsButton/SettingsButton" to="SettingsButton/SettingsButton" method="_on_count_changed"]

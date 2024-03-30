@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5k6hs87avwqx"]
+[gd_scene load_steps=16 format=3 uid="uid://b5k6hs87avwqx"]
 
+[ext_resource type="Script" path="res://scripts/World/World.gd" id="1_k7gt0"]
 [ext_resource type="Script" path="res://scripts/Creators/CloudCreator.gd" id="1_s2fjq"]
 [ext_resource type="PackedScene" uid="uid://bgxb1ry3wpgew" path="res://scenes/World/cloud.tscn" id="2_rdmgm"]
 [ext_resource type="Texture2D" uid="uid://brpiwveenljd1" path="res://assets/images/road.jpg" id="3_rm18j"]
@@ -12,11 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://dojb3307rticc" path="res://scenes/Obstacles/cake.tscn" id="8_7eruk"]
 [ext_resource type="PackedScene" uid="uid://ephuxhp4c7oh" path="res://scenes/Obstacles/sun.tscn" id="8_dq45o"]
 [ext_resource type="PackedScene" uid="uid://8bse85p32rto" path="res://scenes/UI/status_panel.tscn" id="9_f2trp"]
+[ext_resource type="PackedScene" uid="uid://ce10v6svjtp21" path="res://scenes/Obstacles/birthday_cake.tscn" id="13_3iebe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41nsa"]
 size = Vector2(950, 22)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_k7gt0")
+birthday_cake_scene = ExtResource("13_3iebe")
 
 [node name="BackGround" type="Polygon2D" parent="."]
 color = Color(0.870588, 0.980392, 1, 1)
@@ -59,6 +63,7 @@ wait_time = 1.5
 
 [node name="CakeCreator" type="Node2D" parent="." node_paths=PackedStringArray("timer")]
 script = ExtResource("7_cvg7x")
+birthday_cake_scene = ExtResource("13_3iebe")
 node_scene = ExtResource("8_7eruk")
 timer = NodePath("CreateCakeTimer")
 

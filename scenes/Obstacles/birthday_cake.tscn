@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce10v6svjtp21"]
+
+[ext_resource type="PackedScene" uid="uid://cdmwevi6rnb81" path="res://scenes/Obstacles/obstacle.tscn" id="1_yfvts"]
+[ext_resource type="Texture2D" uid="uid://coip6fyqrorg4" path="res://assets/images/birthday_cake.png" id="2_5tgu3"]
+[ext_resource type="Script" path="res://scripts/Obstacles/BirthdayCake.gd" id="2_svaqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcm86"]
+radius = 49.0102
+
+[node name="BirthdayCake" instance=ExtResource("1_yfvts")]
+script = ExtResource("2_svaqp")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_5tgu3")
+
+[node name="CollisionShape" parent="CollideArea" index="0"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_dcm86")

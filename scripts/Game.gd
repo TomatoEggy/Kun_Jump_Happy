@@ -6,7 +6,9 @@ signal score_changed(changed_score)
 ## 存档文件路径
 const DATA_FILE = "user://.data"
 
-const SOUNDS_BUS_INDEX = 2
+const BIRTHDAY_CAKE_SCORE: int = 50 - 1
+
+const SOUNDS_BUS_INDEX: int = 2
 
 ## 游戏结束的场景
 @export var game_over_scene: PackedScene
@@ -53,14 +55,12 @@ var bgm: AudioStream:
 			bgm = v
 			bgm_node.stream = bgm
 			bgm_node.play()
-		
-var mute_sounds: bool:
-	set(v):
-		mute_sounds = v
-		AudioServer.set_bus_mute(SOUNDS_BUS_INDEX, mute_sounds)
 
 ## 玩家所得过的最大的分数
 var max_score: int = 0
+
+## 玩家是否吃了1周年蛋糕
+var ate_birthday_cake: bool = false
 
 ## 游戏中的各种受难度影响数值
 var variables: Dictionary = {
@@ -83,7 +83,6 @@ func _ready() -> void:
 	# 加载游戏数据
 	bgm = load("res://assets/music/kunmusic.mp3")
 	max_score = 0
-	mute_sounds = false
 	load_data()
 	
 func _notification(what: int) -> void:
@@ -93,6 +92,9 @@ func _notification(what: int) -> void:
 func reset_game():
 	score = 0
 	bgm_node.play()
+
+func game_over():
+	change_scene(game_over_scene)
 
 func change_scene(scene: PackedScene):
 	get_tree().change_scene_to_packed(scene)
@@ -105,7 +107,6 @@ func save_data() -> void:
 	var data := {
 		"bgm": bgm.resource_path,
 		"max_score": max_score,
-		"mute_sounds": mute_sounds
 	}
 	var json := JSON.stringify(data)
 	
@@ -124,7 +125,6 @@ func load_data() -> void:
 	
 	bgm = load(data["bgm"])
 	max_score = data["max_score"]
-	mute_sounds = data["mute_sounds"]
 
 func quit():
 	save_data()

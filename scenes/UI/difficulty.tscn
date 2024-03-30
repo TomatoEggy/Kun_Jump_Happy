@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 45
-text = "选择难度"
+text = "选择答辩"
 horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
@@ -96,7 +96,7 @@ grow_vertical = 2
 theme = ExtResource("1_b6t7w")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = "地球人玩"
+text = "外星人玩"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -120,7 +120,7 @@ grow_vertical = 2
 theme = ExtResource("1_b6t7w")
 theme_override_colors/font_color = Color(1, 0.635294, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = "有亿点难"
+text = "有一点难"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -144,7 +144,7 @@ grow_vertical = 2
 theme = ExtResource("1_b6t7w")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = ":（"
+text = ": ）"
 horizontal_alignment = 1
 vertical_alignment = 1
 

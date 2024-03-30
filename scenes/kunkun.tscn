@@ -305,5 +305,5 @@ libraries = {
 autoplay = "idle"
 
 [node name="InvincibleTimer" type="Timer" parent="."]
-wait_time = 4.5
+wait_time = 4.6
 one_shot = true

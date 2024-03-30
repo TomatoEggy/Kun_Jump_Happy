@@ -80,14 +80,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed == true:
 			if event.position.x <= Game.screen_width / 2 and is_on_floor():
-				should_jump = true
-			if event.position.x > Game.screen_width / 2 and is_on_floor():
 				should_squat = true
+			if event.position.x > Game.screen_width / 2 and is_on_floor():
+				should_jump = true
 		else:
 			if event.position.x <= Game.screen_width / 2:
-				should_jump = false
-			if event.position.x > Game.screen_width / 2:
 				should_squat = false
+			if event.position.x > Game.screen_width / 2:
+				should_jump = false
 
 func _physics_process(_delta: float) -> void:
 	if position.x != ready_pos.x:
@@ -183,10 +183,17 @@ func collide_obstacle(source: Obstacle):
 			should_invincible = true
 		if source is Cake and current_state != State.INVINCIBLE:
 			current_health += 1
+		if source is BirthdayCake:
+			Game.score += 1
+			current_health += 1
+			Game.ate_birthday_cake = true
 
 	if current_state == State.INVINCIBLE:
 		add_score(source)
 
 func add_score(source: Obstacle):
 	if not((source is Cake) and (source.not_hurt)):
-		Game.score += 1
+		if Game.ate_birthday_cake:
+			Game.score *= randi_range(2, 3)
+		else:
+			Game.score += 1

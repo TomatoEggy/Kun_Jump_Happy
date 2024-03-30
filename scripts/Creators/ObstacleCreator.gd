@@ -35,8 +35,9 @@ func create_obstacle(obstacle: PackedScene) -> void:
 
 
 func _on_timer_timeout() -> void:
-	if current_obstacle_num > obstacle_range:
-		current_obstacle += 1
-		current_obstacle_num = 1
-	create_obstacle(current_obstacle_scene)
+	if Game.score != Game.BIRTHDAY_CAKE_SCORE:
+		if current_obstacle_num > obstacle_range:
+			current_obstacle += 1
+			current_obstacle_num = 1
+		create_obstacle(current_obstacle_scene)
 	timer.start()

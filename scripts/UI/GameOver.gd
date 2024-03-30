@@ -7,8 +7,11 @@ extends Control
 func _ready() -> void:
 	if OS.get_name() == "iOS":
 		quit_button.visible = false
-
-	if Game.score > Game.max_score:
+	
+	if Game.ate_birthday_cake:
+		new_record.visible = true
+		new_record.text = "亻尔 吃 了 1 周 年 蛋 糕！"
+	elif Game.score > Game.max_score:
 		new_record.visible = true
 		Game.max_score = Game.score
 	your_score.text += str(Game.score)
